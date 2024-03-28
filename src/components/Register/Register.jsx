@@ -60,7 +60,7 @@ const Register = () => {
 
   return (
     <div className="container vh-100 d-flex justify-content-center align-items-center">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="shadow p-5 bg-white rounded">
         <h3 className="text-center">Sign Up</h3>
         <div className="mb-3">
           <label>User Name</label>
@@ -73,6 +73,9 @@ const Register = () => {
             onChange={handleChange}
             onBlur={handleBlur}
           />
+          {errors.name && touched ? (
+            <span className="error text-danger">{errors.name}</span>
+          ) : null}
         </div>
         <div className="mb-3">
           <label>Email </label>
@@ -86,7 +89,7 @@ const Register = () => {
             onBlur={handleBlur}
           />
           {errors.email && touched ? (
-            <span className="error">{errors.email}</span>
+            <span className="error text-danger">{errors.email}</span>
           ) : null}
         </div>
         <div className="mb-3">
@@ -101,7 +104,7 @@ const Register = () => {
             onBlur={handleBlur}
           />
           {errors.password && touched ? (
-            <span className="error">{errors.password}</span>
+            <span className="error text-danger">{errors.password}</span>
           ) : null}
         </div>
 
